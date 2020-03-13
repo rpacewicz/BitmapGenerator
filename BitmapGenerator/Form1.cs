@@ -19,17 +19,7 @@ namespace BitmapGenerator
         public Form1()
         {
             InitializeComponent();
-            this.pictureBox1.Size = new System.Drawing.Size(bitmapDimension, bitmapDimension);
-
-            bm = new Bitmap(bitmapDimension, bitmapDimension);
-            Graphics g = Graphics.FromImage(bm);
-            g.Clear(Color.Green);
-            for (int x = 1; x < bitmapDimension; x++)
-            {
-                bm.SetPixel(x, x, Color.Red);
-                bm.SetPixel(x, bitmapDimension - x, Color.Red);
-            }
-            pictureBox1.Image = bm;
+            updateBitmap();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -108,5 +98,27 @@ namespace BitmapGenerator
                 fs.Close();
             }
         }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            bitmapDimension = (int)numericUpDown1.Value;
+            updateBitmap();
+        }
+
+        private void updateBitmap()
+        {
+            this.pictureBox1.Size = new System.Drawing.Size(bitmapDimension, bitmapDimension);
+
+            bm = new Bitmap(bitmapDimension, bitmapDimension);
+            Graphics g = Graphics.FromImage(bm);
+            g.Clear(Color.White);
+            for (int x = 1; x < bitmapDimension; x++)
+            {
+                bm.SetPixel(x, x, Color.Red);
+                bm.SetPixel(x, bitmapDimension - x, Color.Red);
+            }
+            pictureBox1.Image = bm;
+        }
+
     }
 }
