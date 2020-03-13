@@ -22,7 +22,8 @@
 mono_crash.*
 
 # Build results
-[Dd]ebug/
+bin/
+!bin/Release/BitmapGenerator.exe
 [Dd]ebugPublic/
 [Rr]elease/
 [Rr]eleases/
@@ -31,7 +32,7 @@ x86/
 [Aa][Rr][Mm]/
 [Aa][Rr][Mm]64/
 bld/
-[Bb]in/
+[Dd]ebug/
 [Oo]bj/
 [Ll]og/
 
@@ -353,6 +354,3 @@ healthchecksdb
 MigrationBackup/
 
 # End of https://www.gitignore.io/api/visualstudio
-
-# Unignore all with extensions
-!BitmapGenerator.exe
